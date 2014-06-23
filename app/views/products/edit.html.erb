@@ -1,0 +1,7 @@
+<%= form_for @product, method: 'post', do |f| %>
+
+<%= f.text_field :name, placeholder: 'name' %>
+<%= f.text_area :description, placeholder: 'description' %>
+<%= f.submit "Post", '/product' %>
+
+<% end %>

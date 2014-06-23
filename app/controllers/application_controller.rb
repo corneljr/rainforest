@@ -8,6 +8,7 @@ private
 		unless current_user
 			flash[:alert] = "Please log in"
 			redirect_to new_session_path
+    end
 	end
 
   def current_user

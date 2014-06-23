@@ -1,0 +1,24 @@
+<% if @product.user_id == current_user.id %>	
+	<% link_to 'edit', edit_product_path(@product) %>
+	<% link_to 'delete', "/products/#{@product.id}", method: delete %>
+<% end %>
+
+	<h2><%= @product.name %></h2>
+	<p><%= @product.description %></p>
+
+	<div><%= form_for @review do |f| %>
+		
+		<%= f.hidden_field :user_id, value: current_user.id %>
+		<%= f.hidden_field :product_id, value: @product.id %>
+		<%= f.text_field :review, placeholder: 'comment' %>
+		<%= f.submit 'post' %>
+
+	<% end %>
+	</div>
+
+	<% @reviews.each do |review| %>
+
+		<p><%= User.find(review.user_id).email %><%= review.review %></p>
+
+	<% end %>
+

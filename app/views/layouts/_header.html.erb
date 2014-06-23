@@ -1,0 +1,10 @@
+<header>
+	<%= link_to("Rainforest", root_url) %>
+	<% if current_user %>
+ 		<%= link_to("Sign out", session_path(current_user) , method: 'delete') %>
+ 		<%= link_to("New product", new_product_path) %>
+ 	<% else %>
+ 		<%= link_to "Sign in", new_session_path %>
+ 		<%= link_to "Sign up", new_user_path %>
+ 	<% end %>
+</header>
